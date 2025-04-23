@@ -19,12 +19,15 @@ applications:
     web:
       locations:
         "/":
-          root: ".next/static"
-          expires: 1h
+          passthru: true
       commands:
         start: "npm run start -p $PORT"
       upstream:
         socket_family: tcp
+    mounts:
+      "/.npm":
+        source: "storage"
+        source_path: "npm"
     hooks:
       build: |
         set -x -e
