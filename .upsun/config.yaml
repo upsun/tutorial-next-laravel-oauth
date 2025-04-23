@@ -19,11 +19,12 @@ applications:
     web:
       locations:
         "/":
-          root: ".next"
+          root: ".next/static"
           expires: 1h
-          passthru: "/index.html"
       commands:
-        start: npm run start
+        start: "npm run start -p $PORT"
+      upstream:
+        socket_family: tcp
     hooks:
       build: |
         set -x -e
@@ -66,6 +67,7 @@ applications:
         - pdo_pgsql
         - sodium
         - xsl
+        - redis
     hooks:
       build: |
         set -eux
