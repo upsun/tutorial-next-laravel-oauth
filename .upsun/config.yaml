@@ -32,7 +32,7 @@ applications:
   api:
     type: "php:8.4"
     relationships:
-      db: "db:postgresql"
+      database: "database:postgresql"
       cache: "valkey:valkey"
     mounts:
       "/.config":
