@@ -1,7 +1,7 @@
 routes:
   "https://api.{all}/": { type: upstream, upstream: "app:http" }
-  "https://frontend.{all}/": { type: upstream, upstream: "frontend:http" }
-  "http://{all}/": { type: redirect, to: "https://frontend.{all}/" }
+  "https://{all}/": { type: upstream, upstream: "next:http" }
+  "http://{all}/": { type: redirect, to: "https://{all}/" }
 
 services: 
   database:
@@ -19,7 +19,7 @@ applications:
     web:
       locations:
         "/":
-          root: "build"
+          root: ".next"
           expires: 1h
           passthru: "/index.html"
       commands:
