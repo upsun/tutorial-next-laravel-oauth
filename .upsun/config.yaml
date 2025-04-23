@@ -56,6 +56,16 @@ applications:
     dependencies:
       php:
         composer/composer: "^2"
+    runtime:
+      extensions:
+        - apcu
+        - blackfire
+        - ctype
+        - iconv
+        - mbstring
+        - pdo_pgsql
+        - sodium
+        - xsl
     hooks:
       build: |
         set -eux
@@ -71,7 +81,3 @@ applications:
         php artisan telescope:publish
         php artisan passport:keys
         php artisan optimize:clear
-    runtime:
-      extensions:
-        - pdo_pgsql
-        - redis
