@@ -1,3 +1,7 @@
+export APP_ENV=production
+export APP_DEBUG=false
+export APP_NAME="OAuth project"
+
 export DB_SCHEME="pgsql"
 export DATABASE_URL="postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_PATH}"
 export DB_CONNECTION="$DB_SCHEME"

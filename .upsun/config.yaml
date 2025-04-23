@@ -21,7 +21,7 @@ applications:
         "/":
           passthru: true
       commands:
-        start: "npm run start -p $PORT"
+        start: "npm run start -- -p $PORT"
       upstream:
         socket_family: tcp
     mounts:
@@ -82,6 +82,7 @@ applications:
         mkdir -p storage/framework/sessions
         mkdir -p storage/framework/cache
         mkdir -p storage/framework/views
+        php artisan key:generate
         php artisan migrate --force
         php artisan telescope:publish
         php artisan passport:keys
