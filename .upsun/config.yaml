@@ -30,9 +30,11 @@ applications:
         npm install
         npm run build
   api:
+    source:
+      root: "api"
     type: "php:8.4"
     relationships:
-      database: "database:postgresql"
+      db: "database:postgresql"
       cache: "valkey:valkey"
     mounts:
       "/.config":

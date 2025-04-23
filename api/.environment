@@ -1,0 +1,14 @@
+export DB_SCHEME="pgsql"
+export DATABASE_URL="postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_PATH}"
+export DB_CONNECTION="$DB_SCHEME"
+export DB_DATABASE="$DB_PATH"
+
+# Set Cache environment variables
+export CACHE_STORE=redis
+export CACHE_PREFIX=
+export CACHE_URL="${CACHE_SCHEME}://${CACHE_HOST}:${CACHE_PORT}"
+
+export REDIS_CLIENT=phpredis
+export REDIS_HOST="$CACHE_HOST"
+export REDIS_PORT="$CACHE_PORT"
+export REDIS_PASSWORD=null
