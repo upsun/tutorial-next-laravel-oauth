@@ -1,14 +1,3 @@
-routes:
-  "https://api.{all}/": { type: upstream, upstream: "api:http", id: "api" }
-  "https://{all}/": { type: upstream, upstream: "next:http", id: "next" }
-  "http://{all}/": { type: redirect, to: "https://{all}/" }
-
-services: 
-  database:
-    type: postgresql:15
-  valkey:
-    type: valkey:8.0
-
 applications:
   next:
     source:
@@ -87,3 +76,14 @@ applications:
         php artisan telescope:publish
         php artisan passport:keys
         php artisan optimize:clear
+
+routes:
+  "https://api.{all}/": { type: upstream, upstream: "api:http", id: "api" }
+  "https://{all}/": { type: upstream, upstream: "next:http", id: "next" }
+  "http://{all}/": { type: redirect, to: "https://{all}/" }
+
+services: 
+  database:
+    type: postgresql:15
+  valkey:
+    type: valkey:8.0
