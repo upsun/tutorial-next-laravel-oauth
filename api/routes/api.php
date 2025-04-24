@@ -10,6 +10,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::post('/logout', function (Request $request) {
         $request->user()->token()->revoke();
+        $request->user()->session()->delete();
         return response()->json(['message' => 'Successfully logged out']);
     });
 });
