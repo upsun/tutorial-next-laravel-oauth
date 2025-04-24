@@ -1,6 +1,6 @@
 routes:
-  "https://api.{all}/": { type: upstream, upstream: "api:http" }
-  "https://{all}/": { type: upstream, upstream: "next:http" }
+  "https://api.{all}/": { type: upstream, upstream: "api:http", id: "api" }
+  "https://{all}/": { type: upstream, upstream: "next:http", id: "next" }
   "http://{all}/": { type: redirect, to: "https://{all}/" }
 
 services: 
