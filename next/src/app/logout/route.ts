@@ -6,14 +6,6 @@ export async function POST () {
   try {
     const cookieStore = await cookies()
 
-    // Define cookie options for deletion (path is important)
-    const cookieOptions = {
-      path: '/',
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production'
-      // maxAge: 0 // Setting maxAge to 0 can also work for deletion
-    }
-
     await fetch(process.env.OAUTH_LOGOUT_URI || '', {
       method: 'POST',
       headers: {
@@ -22,11 +14,11 @@ export async function POST () {
     })
 
     // Delete the main access token cookie
-    cookieStore.delete('access_token', cookieOptions)
+    cookieStore.delete('access_token')
 
     // Attempt to delete OAuth state/verifier cookies as a cleanup measure
-    cookieStore.delete('oauth_state', cookieOptions)
-    cookieStore.delete('oauth_code_verifier', cookieOptions)
+    cookieStore.delete('oauth_state')
+    cookieStore.delete('oauth_code_verifier')
 
     // Get the base URL from the request
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
