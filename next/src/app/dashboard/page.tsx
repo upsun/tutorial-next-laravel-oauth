@@ -86,7 +86,7 @@ export default async function DashboardPage () {
         </div>
       </main>
       <footer className='p-4 text-center text-sm text-gray-500 border-t bg-white'>
-        © {new Date().getFullYear()} Septic Test Inc.
+        © {new Date().getFullYear()} Upsun Test Inc.
       </footer>
     </div>
   )
