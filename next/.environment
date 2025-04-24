@@ -4,6 +4,5 @@ export API_ENDPOINT=${API_HOST}api
 export OAUTH_TOKEN_URI=${API_HOST}oauth/token
 export OAUTH_AUTHORIZE_URL=${API_HOST}oauth/authorize
 export OAUTH_LOGOUT_URI=${API_HOST}api/logout
-export OAUTH_CLIENT_ID=9ebd8f82-e3fe-4205-87ad-bfe10e03cdd9
 export OAUTH_REDIRECT_URI=${NEXT_PUBLIC_BASE_URL}oauth/callback
 export OAUTH_SCOPE=''
